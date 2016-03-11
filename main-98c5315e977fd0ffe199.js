@@ -73,7 +73,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 
-/******/ 			script.src = __webpack_require__.p + "" + ({"1":"somewhere","2":"index"}[chunkId]||chunkId) + "-" + "a71f807cc7b8665b464c" + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + ({"1":"somewhere","2":"index"}[chunkId]||chunkId) + "-" + "98c5315e977fd0ffe199" + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -124,18 +124,6 @@
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 2 */
-/***/ function(module, exports) {
-
-	module.exports = "<div>\n\t<h1>Meaning: {{meaning}}</h1>\n</div>\n";
-
-/***/ },
-/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -768,6 +756,18 @@
 
 	}));
 
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n\t<h1>Meaning: {{meaning}}</h1>\n</div>\n";
 
 /***/ },
 /* 4 */,
