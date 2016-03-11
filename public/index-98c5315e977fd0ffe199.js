@@ -10,15 +10,15 @@ webpackJsonp([2],{
 	});
 	exports.default = page;
 
-	var _pageTemplate = __webpack_require__(2);
+	var _pageTemplate = __webpack_require__(3);
 
 	var _pageTemplate2 = _interopRequireDefault(_pageTemplate);
 
-	var _mustache = __webpack_require__(3);
+	var _mustache = __webpack_require__(1);
 
 	var _mustache2 = _interopRequireDefault(_mustache);
 
-	__webpack_require__(1);
+	__webpack_require__(2);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
