@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 var CleanPlugin = require('clean-webpack-plugin');
+var ExtractPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var production = process.env.NODE_ENV === 'production';
 
 var plugins = [
@@ -8,16 +10,21 @@ var plugins = [
 		name: 'main',
 		children: true,
 		minChunks: 2
+	}),
+	new HtmlWebpackPlugin({
+		title: 'The Sands of Time'
 	})
 ];
 
 if (production) {
 	plugins = plugins.concat([
+		new ExtractPlugin(production ? 'main-[hash].css' : 'main.css'),
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.MinChunkSizePlugin({
-			minChunkSize: 512000, // ~50 kb
-		}),
+		// Doesn't play nice with ExtractText currently https://github.com/webpack/extract-text-webpack-plugin/issues/115
+		// new webpack.optimize.MinChunkSizePlugin({
+		// 	minChunkSize: 512000, // ~50 kb
+		// }),
 		// I don't actually want to obfuscate.
 		// new webpack.optimize.UglifyJsPlugin({
 		// 	mangle: true,
@@ -33,17 +40,16 @@ if (production) {
 					BABEL_ENV: JSON.stringify(process.env.NODE_ENV),
 			},
 		}),
-		new CleanPlugin('public/builds'),
+		new CleanPlugin('public/'),
 	])
 }
 
 module.exports = {
 	entry: './src',
 	output: {
-		path: 'public/builds',
+		path: 'public/',
 		filename: production ? '[name]-[hash].js' : 'app.js',
-		chunkFilename: '[name]-[hash].js',
-		publicPath: 'builds/'
+		chunkFilename: production ? '[name]-[hash].js' : '[name].js',
 	},
 	module: {
 		loaders: [{
@@ -55,7 +61,10 @@ module.exports = {
 			},
 		}, {
 			test: /\.scss$/,
-			loaders: ['style', 'css', 'sass'],
+			loader: production ?
+				ExtractPlugin.extract('style' /* chunk loader */, 'css!sass' /* main loader */) :
+				'style!css!sass',
+
 		}, {
 			test: /\.html$/,
 			loader: 'html',
