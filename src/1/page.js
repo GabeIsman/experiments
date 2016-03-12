@@ -11,7 +11,7 @@ export default function page() {
       ${canvas('uniform', uniform)}
       ${canvas('normal', normal)}
       <div class="description">
-        Messing around with functional architecture, random numbers, and canvases.
+        TIL: if you set the alpha channel to < 1 on a canvas you can see the dom behind it.
       </div>
     </div>
   `);

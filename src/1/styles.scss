@@ -16,6 +16,13 @@ h1 {
   display: inline-block;
 }
 
+@media (max-width: 768px) {
+  .canvas-container {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 canvas {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
 }
