@@ -6,15 +6,9 @@ switch (path) {
   case '/':
   case '':
     require.ensure([], () => {
-      const page = require('./page').default;
+      const page = require('./1/page').default;
       $('body').html(page());
-    }, 'index');
-    break;
-  case '/somewhere':
-    require.ensure([], () => {
-      const page2 = require('./page2').default;
-      $('body').html(page2());
-    }, 'somewhere');
+    });
     break;
   default:
 }
