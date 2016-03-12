@@ -73,7 +73,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 
-/******/ 			script.src = __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "-" + "5b45c99105b4e7328d8c" + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "-" + "7bdac7630087783acf3b" + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -104,9 +104,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var path = window.location.pathname;
 	// Hack to make it work on ghpages.
-	path.replace('/experiments', '');
+	var path = window.location.pathname.replace('/experiments', '');
 
 	switch (path) {
 	  case '/':
